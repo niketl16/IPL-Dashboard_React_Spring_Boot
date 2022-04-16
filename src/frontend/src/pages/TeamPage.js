@@ -19,16 +19,21 @@ export const TeamPage = () => {
 
     };
     fetchMatches();
-});
+},[]);
 
-    
+    // {console.log(team)}
     return (
         <div className="TeamPage">
-            <h1>  nik { team.teamName} </h1>
-            <MatchDetailCard />
-            <MatchSmallCard />
-            <MatchSmallCard />
-            <MatchSmallCard />
+             <h1>  nik er {team.teamName}  </h1>
+            <MatchDetailCard
+                match = {team.matches[0]}
+            />
+            {team.matches.slice(1).map(match=> <MatchSmallCard match={match} />)}
+            
+
+
+
+
         </div>
         
     );
